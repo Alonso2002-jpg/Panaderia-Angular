@@ -1,0 +1,23 @@
+<div class="container">
+  <h3 class="text-center mb-3">Factura de compra</h3>
+  <table class="table table-warning table-striped text-center" id="tab">
+    <thead>
+    <tr>
+      <th scope="col">Producto</th>
+      <th scope="col">Precio Unitario</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Total</th>
+    </tr>
+    </thead>
+    <tbody id="body">
+    <tr *ngFor="let order of factura.orders" [style.display]="order.name == '' ? 'none' : 'table-row'">
+      <td>{{order.name}}</td>
+      <td>{{order.price}}</td>
+      <td>{{order.quantity}}</td>
+      <td>{{order.total}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="col-6 mt-3">Total a pagar: {{factura.importe}}</div>
+</div>

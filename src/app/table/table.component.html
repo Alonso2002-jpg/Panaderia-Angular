@@ -1,0 +1,27 @@
+<div class="col-12">
+  <table class="table table-danger table-striped text-center" id="tab">
+    <thead>
+    <tr>
+      <th scope="col">Producto</th>
+      <th scope="col">Precio Unitario</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Accion</th>
+      <th scope="col">Total</th>
+    </tr>
+    </thead>
+    <tbody id="body">
+    <tr *ngFor="let ordered of totalOrders" [style.display]="ordered.name == '' ? 'none' : 'table-row'">
+      <td>{{ordered.name}}</td>
+      <td>{{ordered.price}}</td>
+      <td>{{ordered.quantity}}</td>
+      <td class="text-center"><button type="button" class="btn btn-danger btn-sm" (click)="deleteOrder(ordered.name)">Eliminar</button></td>
+      <td>{{ordered.total}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div class="col-4">
+  <button type="button" class="btn btn-outline-primary w-100 text-center my-3" id="btnEnd" (click)="createFactura()">Finalizar Compra</button>
+</div>
+<app-factura [factura]="factura" [style.display]="!showFactura ? 'none' : 'block'"></app-factura>
+
